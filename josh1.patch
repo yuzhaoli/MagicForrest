@@ -1,0 +1,89 @@
+diff --git a/.idea/runConfigurations/Magic_Forrest.xml b/.idea/runConfigurations/Magic_Forest.xml
+similarity index 81%
+rename from .idea/runConfigurations/Magic_Forrest.xml
+rename to .idea/runConfigurations/Magic_Forest.xml
+index 5a2ba8e4348672a2d19f604989f49522a3d75225..233113e144d042d7ac4d5798162bdd0e5d8dd6ca 100644
+--- a/.idea/runConfigurations/Magic_Forrest.xml
++++ b/.idea/runConfigurations/Magic_Forest.xml
+@@ -1,5 +1,5 @@
+ <component name="ProjectRunConfigurationManager">
+-  <configuration default="false" name="Magic Forrest" type="Application" factoryName="Application">
++  <configuration default="false" name="Magic Forest" type="Application" factoryName="Application">
+     <option name="MAIN_CLASS_NAME" value="comp1110.ass1.gui.Game" />
+     <module name="comp111-ass1" />
+     <option name="VM_PARAMETERS" value="-ea" />
+diff --git a/README.md b/README.md
+index ec7cbda07f048dc1bf0ad94f7abb186f9b9570f3..9e1095ac66c06fb4f36d9aa48a9593f85c52c4c8 100644
+--- a/README.md
++++ b/README.md
+@@ -36,25 +36,23 @@ than the assignment one mark. **The mark breakdown is described on the
+ [deliverables](https://cs.anu.edu.au/courses/comp1110/assessments/deliverables/#D1A) page.**
+ 
+ The assignment is due at **[08:45 Friday Week 3](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Assignment+1+Due&iso=20180809T2245&p1=%253A), 10 August 2018** ([time remaining](https://www.timeanddate.com/countdown/generic?p0=1440&iso=20180809T2245&msg=Assignment%201%20Due)).
+-week 3 (you can find [this deadline](https://cs.anu.edu.au/courses/comp1110/assessments/deliverables/#D1A)
++You can find [this deadline](https://cs.anu.edu.au/courses/comp1110/assessments/deliverables/#D1A)
+ on the [deliverables page](https://cs.anu.edu.au/courses/comp1110/assessments/deliverables/), where all assignment deadlines for this semester are
+-listed).
+-Your work will be marked via
+-your tutor accessing GitLab, so it is essential that you carefully follow
++listed.
++Your tutor will mark your assignment by accessing your GitLab repository, so it is essential that you carefully follow
+ instructions for setting up and maintaining your repository. You will be marked
+ according to **whatever is committed to your repository at the time of the deadline**.
+-Since the first assignment is redeemable and therefore optional, **[late extentions
++Since the first assignment is redeemable, **[late extentions
+ are not offered and will not be given](https://cs.anu.edu.au/courses/comp1110/deadlines/)**. As always, throughout the course, if
+-some significant circumstance arises outside of the course that you believe is
+-affecting your capacity to complete the course, please carefully follow the ANU's [special consideration process](http://www.anu.edu.au/students/program-administration/assessments-exams/special-assessment-consideration), and your circumstances will be accounted for in your final assessment.
++some significant circumstance arises outside of the course that affects your capacity to complete the course, please carefully follow the ANU's [special consideration process](http://www.anu.edu.au/students/program-administration/assessments-exams/special-assessment-consideration), and your circumstances will be accounted for in your final assessment.
+ 
+ ## Overview
+ 
+ The assignment is based on a simple children's puzzle called
+-[Magic Forrest](http://www.smartgames.eu/en/smartgames/magic-forest),
++[Magic Forest](http://www.smartgames.eu/en/smartgames/magic-forest),
+ made by [SmartGames](http://www.smartgames.eu), a producer of
+ educational games.  The design of the game and all of the imagery in
+-this assignment comes from their Magic Forrest game.
++this assignment comes from their Magic Forest game.
+ 
+ The game is played by placing
+ [*9 tiles*](/../blob/master/src/comp1110/ass1/Tile.java) on a 3x3
+@@ -106,7 +104,7 @@ mushrooms are connected.   However, the problem is not solved, because
+ not only must they be connected, but *all tiles must be placed* as well
+ as having all objectives met.   Notice that the mushrooms are special,
+ because they effectively take two positions (21 and 22).  The pumpkin has
+-the same property, taking positons 9 and 14.  To complete the assignment
++the same property, taking positions 9 and 14.  To complete the assignment
+ with a high mark, you'll have to work out a way to handle this irregularity.
+ 
+ ![alt step 4](assets/step4.png)
+@@ -119,9 +117,9 @@ won't reach the broom.
+ The player places another bridge tile.  By doing this, the path from the
+ hat reaches the raven and the edge of the board, so the path is complete.
+ This means that we can be sure that the hat will not reach the broom,
+-no matter what we do with the remaining five tiles.   However, the game
+-is not finished until we place those tiles.   Since they won't change the
+-result in this case, we can put the remaining tiles whereever we want.
++no matter where the remaining five tiles are placed.   However, the game
++is not finished until all tiles have been placed.   Since they won't change the
++result in this case, the player can put the remaining tiles wherever they want.
+ 
+ ![alt step 6](assets/step6.png)
+ 
+@@ -131,7 +129,7 @@ both an icon (the cat) and a tile (an intersection).
+ ![alt step 9](assets/step9.png)
+ 
+ The player places three more tiles.   The placements are unimportant
+-since we've already guaranteed that we'll be able to meet the objective.
++since the objective has already been met.
+ 
+ ![alt step 10](assets/step10.png)
+ 
+@@ -210,5 +208,5 @@ assignment is redeemable against the exam. The last parts of the assignment are
+ significantly harder than the others, but together worth only one additional mark. I
+ don't encourage you to spend too much time on this unless you are enjoying the
+ challenge of solving these harder problems.  Solutions to tasks #13 and #14 may
+-involve ideas that I have *not covered*, or not covered deeply in class; you may
++involve ideas that I have* **not covered**, *or not covered deeply in class; you may
+ need to go beyond the course material.*
