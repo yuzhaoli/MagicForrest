@@ -95,7 +95,10 @@ public class MagicForest {
    *                  chars, where each element represents the state of one of
    *                  the nine tiles, and is either Game.NOT_PLACED, or is an encoding
    *                  of the placement of that tile (see the constructor for Tile for
-   *                  a full explanation of the tile encoding).
+   *                  a full explanation of the tile encoding).   The index into the
+   *                  tileState array corresponds to the tile ID.  Thus elements 0 .. 3
+   *                  of the tileState array correspond to the four curved tiles,
+   *                  'A' .. 'D', element 8 is tile 'I' (the CAT), etc.
    * @return true if the game is complete, false otherwise
    */
   public boolean updateAndCheck(char[] tileState) {
@@ -111,7 +114,10 @@ public class MagicForest {
    *
    * @param tileState An array of char representing the placement of each of the
    *                  9 tiles (see above and the constructor for Tile for more
-   *                  information).
+   *                  information).   Each element corresponds to a particular
+   *                  tile.  Element 0 corresponds to tile 0, element 8 corresponds
+   *                  to tile 8.   So, for example, element 8 indicates the location
+   *                  of the CAT tile (tile number 8, 'I').
    * @return true if all tiles are placed
    */
   public boolean update(char[] tileState) {
