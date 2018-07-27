@@ -501,7 +501,7 @@ public class Game extends Application {
   private void newGame() {
     try {
       hideCompletion();
-      magicForest = new MagicForest((int) difficulty.getValue());
+      magicForest = new MagicForest((int) difficulty.getValue() - 1);
       char[] sol = magicForest.getSolution();
       makeSolution(sol);
       makeTiles();
