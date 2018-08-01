@@ -40,7 +40,7 @@ public class Objective {
    * <p>
    * So, for example, if the difficulty is 0 (starter), then this function should use a randomized
    * index between 0 and 11 (inclusive) to return an objective from the OBJECTIVES array that is
-   * level 0 difficulty.  On the other hand, if the difficulty is 3 (expert), then this function
+   * level 0 difficulty.  On the other hand, if the difficulty is 3 (master), then this function
    * should use a randomized index between 36 and 47 (inclusive) to return an objective from the
    * OBJECTIVES array that is level 3 difficulty.
    * <p>
@@ -48,7 +48,7 @@ public class Objective {
    * (it always returns a level 0 objective), nor is it randomized (it always returns the same
    * objective).
    *
-   * @param difficulty The difficulty of the game (0 - starter, 1 - junior, 2 - master, 3 - expert)
+   * @param difficulty The difficulty of the game (0 - starter, 1 - junior, 2 - expert, 3 - master)
    * @return An objective at the appropriate level of difficulty.
    */
 
