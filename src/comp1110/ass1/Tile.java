@@ -78,7 +78,19 @@ public class Tile {
    * @return the corresponding direction of rotation (where NORTH is upright).
    */
   static Direction tileCodeToOrientation(int tileCode) {
-    return null;  // TODO Task 2
+  	    switch (tileCode % 4) {
+	        case 0:
+	        	return Direction.NORTH;
+	        case 1:
+	        	return Direction.EAST;
+	        case 2:
+	        	return Direction.SOUTH;
+	        case 3:
+	        	return Direction.WEST;
+	        default:
+	        	return null;
+        }
+
   }
 
   /**
@@ -95,7 +107,31 @@ public class Tile {
    * @return the corresponding board position.
    */
   static int tileCodeToPosition(int tileCode) {
-    return -1;   // TODO Task 3
+  	switch (tileCode / 4) {
+	    case 0:
+			return 6;
+	    case 1:
+		    return 7;
+	    case 2:
+		    return 8;
+	    case 3:
+		    return 11;
+	    case 4:
+		    return 12;
+	    case 5:
+		    return 13;
+	    case 6:
+		    return 16;
+	    case 7:
+		    return 17;
+	    case 8:
+		    return 18;
+	    default:
+	    	return -1;
+
+
+    }
+
   }
 
   /**

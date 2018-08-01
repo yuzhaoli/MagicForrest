@@ -43,6 +43,75 @@ public enum TileType {
    * @return
    */
   int[] nextPositions(int position, int from, Direction orientation) {
+
+    if (this.equals(TileType.CURVE)) {
+      int array[] = new int[1];
+      int difference = position - from;
+      if (orientation.equals(Direction.NORTH)) {
+        if (difference > 0) {
+          array[0] = from + 6;
+        }
+        else {
+          array[0] = from - 6;
+        }
+      }
+      else if (orientation.equals(Direction.EAST)) {
+        if (Math.abs(difference) == 1) {
+          array[0] = from - 4;
+        }
+        else {
+          array[0] = from + 4;
+        }
+      }
+      return array;
+    }
+    else if (this.equals(TileType.BRIDGE)) {
+      int array[] = new int[1];
+      int difference = position - from;
+      if (Math.abs(difference) == 1) {
+        if (position > from) {
+          array[0] = from + 2;
+        }
+        else {
+          array[0] = from - 2;
+        }
+      }
+      else if (Math.abs(difference) == 5){
+        if (position > from) {
+          array[0] = from + 10;
+        }
+        else {
+          array[0] = from - 10;
+        }
+      }
+      return array;
+    }
+    else if (this.equals(TileType.INTERSECTION)) {
+      int array[] = new int[3];
+      if (position - from == 5) {
+        array[0] = position - 1;
+        array[1] = position + 1;
+        array[2] = position + 5;
+      }
+
+      else if (position - from == -5) {
+        array[0] = position - 5;
+        array[1] = position - 1;
+        array[2] = position + 1;
+      }
+      else if (position - from == 1) {
+        array[0] = position - 5;
+        array[1] = position + 1;
+        array[2] = position + 5;
+      }
+      else if (position - from == -1) {
+        array[0] = position - 5;
+        array[1] = position - 1;
+        array[2] = position + 5;
+
+      }
+      return array;
+    }
     return null; // TODO Task 11
   }
 

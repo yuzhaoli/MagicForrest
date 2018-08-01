@@ -1,5 +1,7 @@
 package comp1110.ass1;
 
+import java.util.Random;
+
 /**
  * The objective of the game is represented as two arrays of pairs of icons,
  * one representing the 'connected' pairs (those icons that MUST be connected),
@@ -51,9 +53,22 @@ public class Objective {
    */
 
   public static Objective newObjective(int difficulty) {
-    assert difficulty >= 0 && difficulty <= 3;
+  	assert difficulty >= 0 && difficulty <= 3;
+    Random rnd = new Random();
+    switch (difficulty) {
+      case 0:
+        return OBJECTIVES[rnd.nextInt(12)];
+      case 1:
+        return OBJECTIVES[12 + rnd.nextInt(12)];
+      case 2:
+        return OBJECTIVES[24 + rnd.nextInt(12)];
+      case 3:
 
-    return OBJECTIVES[0]; // TODO Task 4
+        return OBJECTIVES[36 + rnd.nextInt(12)];
+
+
+    }
+    return null;
   }
 
   /**
@@ -109,8 +124,95 @@ public class Objective {
    * @return An array of pairs of icons
    */
   public static Icon[][] iconPairsFromString(String pairEnconding) {
-    return null; // TODO Task 6
+
+  	int pair = pairEnconding.length() / 2;
+  	Icon [][] temp = new Icon[pair][2];
+	for(int i = 0; i < pairEnconding.length(); i++ ){
+		if(i % 2 == 0) {
+			switch(pairEnconding.charAt(i)) {
+				case 'I':
+					temp[i/2][0] = Icon.CAT;
+					break;
+				case 'Q':
+					temp[i/2][0] = Icon.FROG;
+					break;
+				case 'R':
+					temp[i/2][0] = Icon.WITCH;
+					break;
+				case 'S':
+					temp[i/2][0] = Icon.BOOKS;
+					break;
+				case 'T':
+					temp[i/2][0] = Icon.MUSHROOMS;
+					break;
+				case 'U':
+					temp[i/2][0] = Icon.BROOM;
+					break;
+				case 'V':
+					temp[i/2][0] = Icon.HAT;
+					break;
+				case 'W':
+					temp[i/2][0] = Icon.PUMPKIN;
+					break;
+				case 'X':
+					temp[i/2][0] = Icon.RAVEN;
+					break;
+				case 'Y':
+					temp[i/2][0] = Icon.SKELETON;
+					break;
+				case 'Z':
+					temp[i/2][0] = Icon.CAULDRON;
+					break;
+
+
+			}
+		}
+		else {
+			switch(pairEnconding.charAt(i)) {
+				case 'I':
+					temp[i/2][1] = Icon.CAT;
+					break;
+				case 'Q':
+					temp[i/2][1] = Icon.FROG;
+					break;
+				case 'R':
+					temp[i/2][1] = Icon.WITCH;
+					break;
+				case 'S':
+					temp[i/2][1] = Icon.BOOKS;
+					break;
+				case 'T':
+					temp[i/2][1] = Icon.MUSHROOMS;
+					break;
+				case 'U':
+					temp[i/2][1] = Icon.BROOM;
+					break;
+				case 'V':
+					temp[i/2][1] = Icon.HAT;
+					break;
+				case 'W':
+					temp[i/2][1] = Icon.PUMPKIN;
+					break;
+				case 'X':
+					temp[i/2][1] = Icon.RAVEN;
+					break;
+				case 'Y':
+					temp[i/2][1] = Icon.SKELETON;
+					break;
+				case 'Z':
+					temp[i/2][1] = Icon.CAULDRON;
+					break;
+
+			}
+
+		}
+	}
+
+
+
+  	return temp;// TODO Task 6
   }
+
 
   /*
    * This array defines a set of 48 pre-defined puzzle objectives.

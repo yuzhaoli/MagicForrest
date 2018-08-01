@@ -1,5 +1,9 @@
 package comp1110.ass1;
 
+import comp1110.ass1.gui.Game;
+
+import java.sql.SQLOutput;
+
 /**
  * This class represents a game of 'magicForest', which is based directly on a children's game
  * from 'SmartGames' called "Magic Forest"
@@ -79,6 +83,7 @@ public class MagicForest {
   private void initializeNodeGraph() {
     nodes = new Node[25];
     for (Icon icon : Icon.values()) {
+      // System.out.println(icon.getKey());
       if (icon.isFixed()) {
         nodes[icon.getPosition()] = new Node(icon);
       }
@@ -95,7 +100,10 @@ public class MagicForest {
    *                  chars, where each element represents the state of one of
    *                  the nine tiles, and is either Game.NOT_PLACED, or is an encoding
    *                  of the placement of that tile (see the constructor for Tile for
-   *                  a full explanation of the tile encoding).
+   *                  a full explanation of the tile encoding).   The index into the
+   *                  tileState array corresponds to the tile ID.  Thus elements 0 .. 3
+   *                  of the tileState array correspond to the four curved tiles,
+   *                  'A' .. 'D', element 8 is tile 'I' (the CAT), etc.
    * @return true if the game is complete, false otherwise
    */
   public boolean updateAndCheck(char[] tileState) {
@@ -111,18 +119,42 @@ public class MagicForest {
    *
    * @param tileState An array of char representing the placement of each of the
    *                  9 tiles (see above and the constructor for Tile for more
-   *                  information).
+   *                  information).   Each element corresponds to a particular
+   *                  tile.  Element 0 corresponds to tile 0, element 8 corresponds
+   *                  to tile 8.   So, for example, element 8 indicates the location
+   *                  of the CAT tile (tile number 8, 'I').
    * @return true if all tiles are placed
    */
   public boolean update(char[] tileState) {
     assert tileState.length == 9;
-    return false; // TODO Task 12
+
+    for (int i = 0; i < tileState.length; i++) {
+      if(tileState[i] == Game.NOT_PLACED) {
+        return false;
+      }
+      else {
+        if (i <= 2 && i >= 0) {
+          nodes[i+6] = new Node(i, tileState[i]);
+        }
+        else if (i <= 5 && i >= 3) {
+          nodes[i+8] = new Node(i, tileState[i]);
+        }
+        else if (i <= 8 && i >= 6) {
+          nodes[i+10] = new Node(i, tileState[i]);
+        }
+      }
+    }
+    return true;
+     // TODO Task 12
   }
 
   /**
    * @return true if the current board state completes the objective
    */
   public boolean checkCompletion() {
+
+
+
     return false; // TODO Task 12
   }
 

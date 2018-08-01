@@ -122,7 +122,8 @@ public class Node {
    */
   static boolean isOnBoard(int position) {
     assert position >= 0 && position <= 24;
-    return false; // TODO Task 5
+    if ((position >= 6 && position <=8) || (position >= 11 && position <= 13) || (position >= 16 && position <= 18)) return true;
+    else return false; // TODO Task 5
   }
 
   /**
@@ -141,7 +142,64 @@ public class Node {
    */
   static int[] getNeighbours(int position) {
     assert isOnBoard(position);
-    return null;  // TODO Task 7
+    int[] neighbours = new int[4];
+    switch(position) {
+      case 6:
+        neighbours[0] = 1;
+        neighbours[1] = 5;
+        neighbours[2] = 7;
+        neighbours[3] = 11;
+        break;
+      case 7:
+        neighbours[0] = 2;
+        neighbours[1] = 6;
+        neighbours[2] = 8;
+        neighbours[3] = 12;
+        break;
+      case 8:
+        neighbours[0] = 3;
+        neighbours[1] = 7;
+        neighbours[2] = 9;
+        neighbours[3] = 13;
+        break;
+      case 11:
+        neighbours[0] = 6;
+        neighbours[1] = 10;
+        neighbours[2] = 12;
+        neighbours[3] = 16;
+        break;
+      case 12:
+        neighbours[0] = 7;
+        neighbours[1] = 11;
+        neighbours[2] = 13;
+        neighbours[3] = 17;
+        break;
+      case 13:
+        neighbours[0] = 8;
+        neighbours[1] = 12;
+        neighbours[2] = 14;
+        neighbours[3] = 18;
+        break;
+      case 16:
+        neighbours[0] = 11;
+        neighbours[1] = 15;
+        neighbours[2] = 17;
+        neighbours[3] = 21;
+        break;
+      case 17:
+        neighbours[0] = 12;
+        neighbours[1] = 16;
+        neighbours[2] = 18;
+        neighbours[3] = 22;
+        break;
+      case 18:
+        neighbours[0] = 13;
+        neighbours[1] = 17;
+        neighbours[2] = 19;
+        neighbours[3] = 23;
+        break;
+    }
+    return neighbours;  // TODO Task 7
   }
 
   /**
@@ -157,7 +215,43 @@ public class Node {
    */
   static int getNeighbour(int position, Direction direction) {
     assert position >= 0 && position <= 24;
-    return -1; // TODO Task 8
+
+    if (direction.equals(Direction.NORTH)) {
+      if (position == 0 || position == 1 || position == 2 || position == 3 || position == 4) {
+        return -1;
+      }
+      else {
+        return (position - 5);
+      }
+    }
+    else if (direction.equals(Direction.SOUTH)) {
+      if (position == 20 || position == 21 || position == 22 || position == 23 || position == 24) {
+        return -1;
+      }
+      else {
+        return (position + 5);
+      }
+    }
+    else if (direction.equals(Direction.EAST)) {
+      if (position == 4 || position == 9 || position == 14 || position == 19 || position == 24) {
+        return -1;
+      }
+      else {
+        return (position + 1);
+      }
+    }
+    else if (direction.equals(Direction.WEST )) {
+      if (position == 0 || position == 5 || position == 15 || position == 20 || position == 25) {
+        return -1;
+      }
+      else {
+        return (position - 1);
+      }
+    }
+
+    return -1;
+
+     // TODO Task 8
   }
 
   /**
@@ -170,6 +264,10 @@ public class Node {
    * @return true if the positions are neighbours
    */
   static boolean areNeighbours(int a, int b) {
+    int difference = a - b;
+    if (Math.abs(difference) == 1 || Math.abs(difference) == 5 ) {
+      return true;
+    }
     return false; // TODO Task 9
   }
 
@@ -185,6 +283,19 @@ public class Node {
    */
   static Direction getHeading(int src, int dst) {
     assert areNeighbours(src, dst);
+
+    if ( src - dst == 5) {
+      return Direction.NORTH;
+    }
+    else if ( src - dst == -5) {
+      return Direction.SOUTH;
+    }
+    else if ( src - dst == 1) {
+      return Direction.WEST;
+    }
+    else if ( src - dst == -1) {
+      return Direction.EAST;
+    }
     return Direction.NORTH; // TODO Task 10
   }
 
