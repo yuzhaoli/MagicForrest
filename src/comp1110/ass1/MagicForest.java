@@ -129,19 +129,14 @@ public class MagicForest {
     assert tileState.length == 9;
 
     for (int i = 0; i < tileState.length; i++) {
+
       if(tileState[i] == Game.NOT_PLACED) {
         return false;
       }
       else {
-        if (i <= 2 && i >= 0) {
-          nodes[i+6] = new Node(i, tileState[i]);
-        }
-        else if (i <= 5 && i >= 3) {
-          nodes[i+8] = new Node(i, tileState[i]);
-        }
-        else if (i <= 8 && i >= 6) {
-          nodes[i+10] = new Node(i, tileState[i]);
-        }
+        // System.out.println("Position: " + Tile.tileCodeToPosition((int)tileState[i]) + " Orientation: " + Tile.tileCodeToOrientation((int)tileState[i]));
+        nodes[Tile.tileCodeToPosition((int)tileState[i])] = new Node(i, (int)tileState[i]);
+
       }
     }
     return true;
@@ -153,10 +148,87 @@ public class MagicForest {
    */
   public boolean checkCompletion() {
 
+    boolean bar = true;
+
+    int [] array = {6,7,8,11,12,13,16,17,18};
+
+    for (int i = 0; i < objective.getConnectedPairs().length; i++) {
+      // System.out.println(objective.getConnectedPairs()[i][0] + " to " + objective.getConnectedPairs()[i][1]);
+      int start = objective.getConnectedPairs()[i][0].getPosition();
+      int [] end = new int[1];
+      end[0] = objective.getConnectedPairs()[i][1].getPosition();
+
+      if (start != -1) {
+        nodes[start].setReachable(end);
+        if(!nodes[start].isConnected(nodes[end[0]])) {
+          return false;
+        }
+      }
+
+      if (start == -1) {
+
+        int catPos = 0;
+        for (int j : array) {
+          if (nodes[j].tile.isCat()) {
+            catPos = j;
+          }
+        }
+
+        System.out.println(catPos + " lalaal " + nodes[catPos].tile.getPosition());
+        nodes[catPos].setReachable(end);
+      }
+
+    }
+
+    for (int i = 0; i < objective.getDisconnectedPairs().length; i++) {
+      int start = objective.getDisconnectedPairs()[i][0].getPosition();
+      System.out.println("Start: " + start);
+      int[] end = new int[1];
+      end[0] = objective.getDisconnectedPairs()[i][1].getPosition();
+      System.out.println("Object pos: " + end[0]);
+      if (start != -1) {
+        nodes[start].setReachable(end);
+        if(nodes[start].isConnected(nodes[end[0]])) {
+          return false;
+        }
+      }
+
+      if (start == -1) {
 
 
-    return false; // TODO Task 12
+        int catPos = 0;
+        for (int j : array) {
+          if (nodes[j].tile.isCat()) {
+            catPos = j;
+          }
+        }
+        System.out.println(catPos + " lalaal " + nodes[catPos].tile.getPosition());
+        nodes[catPos].setReachable(end);
+        System.out.println("end[0] is " + end[0]);
+        System.out.println(nodes[catPos].isConnected(nodes[end[0]]));
+
+      }
+
+
+
+    }
+
+
+    return bar; // TODO Task 12
   }
+
+
+  public boolean checkEachPairConnected(int start, int[] objective) {
+    nodes[start].setReachable(objective);
+    boolean bar = true;
+    for (int i = 0; i < objective.length; i++) {
+      if(!nodes[start].isConnected(nodes[objective[i]])) {
+        return false;
+      }
+    }
+    return bar;
+  }
+
 
   /**
    * Return the set of all solutions to the current objective.

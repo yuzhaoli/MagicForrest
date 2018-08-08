@@ -36,7 +36,7 @@ package comp1110.ass1;
  *   .  T  .  U  .
  */
 public class Node {
-  private int[] reachable; // The list of positions of all icons reachable from this node
+  public int[] reachable; // The list of positions of all icons reachable from this node
   Icon icon;               // The icon associated with this node, if any
   Tile tile;               // The tile associated with this node, if any
 

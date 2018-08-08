@@ -292,3 +292,6 @@ public class Objective {
           new Objective("QSQTQVQWQY", "ISITIVIWIY", 48),
   };
 }
+
+
+
