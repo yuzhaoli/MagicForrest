@@ -122,6 +122,8 @@ public class Node {
    */
   static boolean isOnBoard(int position) {
     assert position >= 0 && position <= 24;
+    // if number is 6,7,8,11,12,13,16,17,18 then return true
+
     if ((position >= 6 && position <=8) || (position >= 11 && position <= 13) || (position >= 16 && position <= 18)) return true;
     else return false; // TODO Task 5
   }
@@ -142,7 +144,11 @@ public class Node {
    */
   static int[] getNeighbours(int position) {
     assert isOnBoard(position);
+
+    // declare the neighbour array
     int[] neighbours = new int[4];
+
+    // put the neighbours for different cases
     switch(position) {
       case 6:
         neighbours[0] = 1;
@@ -216,6 +222,8 @@ public class Node {
   static int getNeighbour(int position, Direction direction) {
     assert position >= 0 && position <= 24;
 
+    // check direction and position, return the corresponding neighbour
+
     if (direction.equals(Direction.NORTH)) {
       if (position == 0 || position == 1 || position == 2 || position == 3 || position == 4) {
         return -1;
@@ -264,7 +272,10 @@ public class Node {
    * @return true if the positions are neighbours
    */
   static boolean areNeighbours(int a, int b) {
+    // take the difference of two points
     int difference = a - b;
+
+    // only be true if it's horizontal or vertical
     if (Math.abs(difference) == 1 || Math.abs(difference) == 5 ) {
       return true;
     }
@@ -283,6 +294,7 @@ public class Node {
    */
   static Direction getHeading(int src, int dst) {
     assert areNeighbours(src, dst);
+    // check which direction comes from
 
     if ( src - dst == 5) {
       return Direction.NORTH;

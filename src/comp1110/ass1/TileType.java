@@ -44,6 +44,8 @@ public enum TileType {
    */
   int[] nextPositions(int position, int from, Direction orientation) {
 
+    // using this to refer the current object and check its TileType
+
     if (this.equals(TileType.CURVE)) {
       int array[] = new int[1];
       int difference = position - from;

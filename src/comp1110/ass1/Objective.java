@@ -54,6 +54,9 @@ public class Objective {
 
   public static Objective newObjective(int difficulty) {
   	assert difficulty >= 0 && difficulty <= 3;
+
+  	// randomly take a number from 0 to 12 and add it on its base from 0, 12, 24, 36
+	//  based cases
     Random rnd = new Random();
     switch (difficulty) {
       case 0:
@@ -125,9 +128,15 @@ public class Objective {
    */
   public static Icon[][] iconPairsFromString(String pairEnconding) {
 
+
   	int pair = pairEnconding.length() / 2;
+  	// declare a 2-d array to store icon
   	Icon [][] temp = new Icon[pair][2];
+
+  	// for loop to read from pairEncoding and find the corresponding icon
 	for(int i = 0; i < pairEnconding.length(); i++ ){
+
+		// store the even index of char to first place
 		if(i % 2 == 0) {
 			switch(pairEnconding.charAt(i)) {
 				case 'I':
@@ -167,6 +176,7 @@ public class Objective {
 
 			}
 		}
+		// store the odd index of char to second place
 		else {
 			switch(pairEnconding.charAt(i)) {
 				case 'I':

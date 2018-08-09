@@ -78,6 +78,9 @@ public class Tile {
    * @return the corresponding direction of rotation (where NORTH is upright).
    */
   static Direction tileCodeToOrientation(int tileCode) {
+
+  	    // take tileCode and mod by 4, give each remainder different cases
+
   	    switch (tileCode % 4) {
 	        case 0:
 	        	return Direction.NORTH;
@@ -109,6 +112,8 @@ public class Tile {
    * @return the corresponding board position.
    */
   static int tileCodeToPosition(int tileCode) {
+
+  	// take each case and map it to corresponding position on board
   	switch (tileCode / 4) {
 	    case 0:
 			return 6;
