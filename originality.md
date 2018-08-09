@@ -7,8 +7,7 @@ Your assignment **will not** be marked unless you have completed this statement.
 
 I declare that the work I have submitted for assignment one is entirely my own work, with the following documented exceptions:
 
-* The idea of <...> came from a discussion with <...>
-
-* The code in class <...> uses an idea suggested by <...>
+* The idea of using array is from the class lecture on 27/8/2018
+* The idea of using this in task 11 is from my previous java class cse2221 with link: http://web.cse.ohio-state.edu/software/2221/web-sw1/schedule.html
 
 Signed: Mary Jones (u2345678)
