@@ -1,4 +1,4 @@
-# COMP1110 Assignment 1
+# COMP1110 Assignment 1 at ANU
 
 ## Academic Honesty and Integrity
 
@@ -178,27 +178,6 @@ permission to do so, and b) you acknowledged that you had done so. Notice,
 however, that if you were to do this you would have no original contribution and
 so would recieve no marks for the assigment (but you would not have broken any
 rules either).
-	
-## Evaluation Criteria
-
-**The mark breakdown is described on the
-[deliverables](https://cs.anu.edu.au/courses/comp1110/assessments/deliverables/#D1A) page.**
-
-<a name="p"></a>
-**Pass**
-* Tasks #1, #2, #3, #4, #5, and #6
-
-<a name="cr"></a>
-**Credit**
-* Tasks #7, #8, #9 and #10 *(in addition to all tasks required for Pass)*
-
-<a name="d"></a>
-**Distinction**
-* Tasks #11 and #12 *(in addition to all tasks required for Credit)*
-
-<a name="hd"></a>
-**High Distinction**
-* Tasks #13 and #14 *(in addition to all tasks required for Distinction)*
 
 **IMPORTANT NOTE:** *It is very important that you understand that you are* **not**
 *required to complete all elements of the
