@@ -202,6 +202,7 @@ public class MagicForest {
             catPos = j;
           }
         }
+
         System.out.println(catPos + " lalaal " + nodes[catPos].tile.getPosition());
         nodes[catPos].setReachable(end);
         System.out.println("end[0] is " + end[0]);

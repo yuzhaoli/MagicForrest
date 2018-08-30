@@ -113,7 +113,7 @@ public class Tile {
    */
   static int tileCodeToPosition(int tileCode) {
 
-  	// take each case and map it to corresponding position on board
+  	// take each case and map it to corresponding position on boar
   	switch (tileCode / 4) {
 	    case 0:
 			return 6;
